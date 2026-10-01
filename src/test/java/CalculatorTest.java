@@ -1,0 +1,45 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CalculatorTest {
+
+    Calculator calculator = new Calculator();
+
+    @Test
+    void testAdd() {
+        assertEquals(10, calculator.add(5, 5));
+    }
+
+    @Test
+    void testSubtract() {
+        assertEquals(5, calculator.subtract(10, 5));
+    }
+
+    @Test
+    void testMultiply() {
+        assertEquals(20, calculator.multiply(4, 5));
+    }
+
+    @Test
+    void testDivide() {
+        assertEquals(5, calculator.divide(10, 2));
+    }
+}
+
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int subtract(int a, int b) {
+        return a - b;
+    }
+
+    int multiply(int a, int b) {
+        return a * b;
+    }
+
+    int divide(int a, int b) {
+        return a / b;
+    }
+}
