@@ -43,7 +43,7 @@ A Java-based calculator application configured with an automated Continuous Inte
 ### Build & Run Tests
 
 ```bash
-# Clone the repository
+# Clone the
 git clone [https://github.com/sudharshanreddy1765/jenkins_calculator.git](https://github.com/sudharshanreddy1765/jenkins_calculator.git)
 
 # Navigate into the project directory
