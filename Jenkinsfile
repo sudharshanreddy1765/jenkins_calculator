@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven 3.9' // Matches the name configured in Jenkins Tools
+        maven 'Maven 3.9'
     }
     stages {
         stage('Build') {
@@ -14,13 +14,15 @@ pipeline {
                 bat 'mvn test'
             }
         }
+        stage('Package') {
+            steps {
+                bat 'mvn package -DskipTests'
+            }
+        }
     }
     post {
         success {
-            echo 'BUILD SUCCESSFUL!'
-        }
-        failure {
-            echo 'BUILD FAILED!'
+            archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: false
         }
     }
 }
