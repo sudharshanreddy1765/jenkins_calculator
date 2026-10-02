@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jenkins Web Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        input, button { padding: 8px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Jenkins Web Calculator</h2>
+    <input type="number" id="num1" placeholder="First Number">
+    <input type="number" id="num2" placeholder="Second Number">
+    <br>
+    <button onclick="calculate('add')">+</button>
+    <button onclick="calculate('subtract')">-</button>
+    <button onclick="calculate('multiply')">*</button>
+    <button onclick="calculate('divide')">/</button>
+    <h3 id="result">Result: </h3>
+
+    <script>
+        function calculate(op) {
+            let a = document.getElementById('num1').value;
+            let b = document.getElementById('num2').value;
+            fetch(`/${op}?a=${a}&b=${b}`)
+                .then(response => response.text())
+                .then(data => document.getElementById('result').innerText = data);
+        }
+    </script>
+</body>
+</html>

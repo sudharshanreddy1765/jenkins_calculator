@@ -1,0 +1,31 @@
+package com.example;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CalculatorController {
+
+    private final Calculator calculator = new Calculator();
+
+    @GetMapping("/add")
+    public String add(@RequestParam int a, @RequestParam int b) {
+        return "Result: " + calculator.add(a, b);
+    }
+
+    @GetMapping("/subtract")
+    public String subtract(@RequestParam int a, @RequestParam int b) {
+        return "Result: " + calculator.subtract(a, b);
+    }
+
+    @GetMapping("/multiply")
+    public String multiply(@RequestParam int a, @RequestParam int b) {
+        return "Result: " + calculator.multiply(a, b);
+    }
+
+    @GetMapping("/divide")
+    public String divide(@RequestParam int a, @RequestParam int b) {
+        return "Result: " + calculator.divide(a, b);
+    }
+}
